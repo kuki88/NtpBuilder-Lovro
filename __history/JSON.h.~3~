@@ -1,0 +1,21 @@
+//---------------------------------------------------------------------------
+
+#ifndef JSONH
+#define JSONH
+#include <string>
+//---------------------------------------------------------------------------
+#endif
+
+
+class JSON
+{
+private:
+	String jsonString;
+
+public:
+	JSON();
+
+	JSON(String _string) : jsonString(_string);
+
+
+};

@@ -2,8 +2,8 @@ object FormLogin: TFormLogin
   Left = 0
   Top = 0
   Caption = 'FormLogin'
-  ClientHeight = 251
-  ClientWidth = 237
+  ClientHeight = 255
+  ClientWidth = 239
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,25 +12,27 @@ object FormLogin: TFormLogin
   Font.Style = []
   OldCreateOrder = False
   DesignSize = (
-    237
-    251)
+    239
+    255)
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
-    Left = 80
+    Left = 81
     Top = 16
     Width = 70
     Height = 13
     Anchors = [akTop]
     Caption = 'Korisni'#269'ko ime:'
+    ExplicitLeft = 80
   end
   object Label2: TLabel
-    Left = 96
+    Left = 97
     Top = 80
     Width = 39
     Height = 13
     Anchors = [akTop]
     Caption = 'Lozinka:'
+    ExplicitLeft = 96
   end
   object labelPrijava: TLabel
     Left = 8
@@ -48,7 +50,7 @@ object FormLogin: TFormLogin
     Visible = False
   end
   object editKorisnicko: TEdit
-    Left = 8
+    Left = 9
     Top = 35
     Width = 221
     Height = 30
@@ -60,10 +62,11 @@ object FormLogin: TFormLogin
     Font.Style = []
     ParentFont = False
     TabOrder = 0
+    ExplicitLeft = 8
   end
   object btnLogin: TButton
-    Left = 8
-    Top = 201
+    Left = 9
+    Top = 205
     Width = 221
     Height = 42
     Anchors = [akBottom]
@@ -76,9 +79,11 @@ object FormLogin: TFormLogin
     ParentFont = False
     TabOrder = 1
     OnClick = btnLoginClick
+    ExplicitLeft = 8
+    ExplicitTop = 201
   end
   object editLozinka: TEdit
-    Left = 8
+    Left = 9
     Top = 99
     Width = 221
     Height = 30
@@ -90,6 +95,7 @@ object FormLogin: TFormLogin
     Font.Style = []
     ParentFont = False
     TabOrder = 2
+    ExplicitLeft = 8
   end
   object ADOTable1: TADOTable
     ConnectionString = 

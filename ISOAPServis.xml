@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ISOAPServisservice" targetNamespace="http://tempuri.org/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/">
+  <message name="generiranjeISBN0Request">
+    <part name="devetBrojeva" type="xs:string"/>
+  </message>
+  <message name="generiranjeISBN0Response">
+    <part name="return" type="xs:int"/>
+  </message>
+  <portType name="ISOAPServis">
+    <operation name="generiranjeISBN">
+      <input message="tns:generiranjeISBN0Request"/>
+      <output message="tns:generiranjeISBN0Response"/>
+    </operation>
+  </portType>
+  <binding name="ISOAPServisbinding" type="tns:ISOAPServis">
+    <binding xmlns="http://schemas.xmlsoap.org/wsdl/soap/" style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="generiranjeISBN">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:SOAPServis-ISOAPServis#generiranjeISBN" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:SOAPServis-ISOAPServis"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:SOAPServis-ISOAPServis"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="ISOAPServisservice">
+    <port name="ISOAPServisPort" binding="tns:ISOAPServisbinding">
+      <address xmlns="http://schemas.xmlsoap.org/wsdl/soap/" location="http://localhost:8080/soap/ISOAPServis"/>
+    </port>
+  </service>
+</definitions>
+

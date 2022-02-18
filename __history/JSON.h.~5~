@@ -1,0 +1,26 @@
+//---------------------------------------------------------------------------
+
+#ifndef JSONH
+#define JSONH
+#include <string>
+#include <string>
+#include <vcl.h>
+#include <memory>
+#pragma hdrstop
+
+//---------------------------------------------------------------------------
+#endif
+
+
+class JSON
+{
+private:
+	String jsonString;
+
+public:
+	JSON();
+
+	JSON(String _string) : jsonString(_string) {};
+
+
+};

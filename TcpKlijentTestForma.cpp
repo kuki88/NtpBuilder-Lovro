@@ -66,25 +66,23 @@ void __fastcall TFormTCP::TCPServerExecute(TIdContext *AContext)
 	jsonFinal->LoadFromFile("datumi.json");
 	UnicodeString jsonContent = jsonFinal->DataString;
 
-	ShowMessage(jsonContent);
-
 //	vector<TJSONArray*> vec;
 	TJSONObject* js1 = (TJSONObject*)TJSONObject::ParseJSONValue(jsonFinal->DataString);
-	TJSONArray* js2 = (TJSONArray*)TJSONObject::ParseJSONValue(js1->GetValue("22.02.2022.")->ToString());
+	TJSONArray* js2 = (TJSONArray*)TJSONObject::ParseJSONValue(js1->GetValue("Posudbe")->ToString());
 
 //	ShowMessage(js2);
 
-	UnicodeString Kontakt;
+	UnicodeString popisPosudbi;
 	for(int i = 0; i < js2->Count; i++)
 	{
-		Kontakt = js2->Items[i]->GetValue<UnicodeString>("Naziv Knjige");
-		ShowMessage(Kontakt);
+		popisPosudbi += js2->Items[i]->GetValue<UnicodeString>("Naziv Knjige");
+        popisPosudbi += "\nPovratak:\t";
+		popisPosudbi += js2->Items[i]->GetValue<UnicodeString>("Datum Povratka");
+		popisPosudbi += "\n";
+		popisPosudbi += "-----------------------------------\n";
 	}
 
-	for (int i = 0; i < js1->Count; i++) {
-
-	}
-
+	ShowMessage(popisPosudbi);
 
 //	String var = js2->Items[0]->GetValue<UnicodeString>("Naziv Knjige");
 

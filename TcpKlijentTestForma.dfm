@@ -2,8 +2,8 @@ object FormTCP: TFormTCP
   Left = 0
   Top = 0
   Caption = 'FormTCP'
-  ClientHeight = 282
-  ClientWidth = 311
+  ClientHeight = 231
+  ClientWidth = 541
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,9 +11,6 @@ object FormTCP: TFormTCP
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  DesignSize = (
-    311
-    282)
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
@@ -21,7 +18,6 @@ object FormTCP: TFormTCP
     Top = 8
     Width = 45
     Height = 13
-    Anchors = [akTop]
     Caption = 'Server IP'
   end
   object labelSpojeno: TLabel
@@ -36,7 +32,6 @@ object FormTCP: TFormTCP
     Top = 24
     Width = 121
     Height = 21
-    Anchors = [akTop]
     TabOrder = 0
     Text = '127.0.0.1'
   end
@@ -45,7 +40,6 @@ object FormTCP: TFormTCP
     Top = 51
     Width = 121
     Height = 30
-    Anchors = [akTop]
     Caption = 'Spoji'
     TabOrder = 1
     OnClick = btnConnDiscClick
@@ -56,14 +50,13 @@ object FormTCP: TFormTCP
     Width = 121
     Height = 21
     TabOrder = 2
-    Text = 'editPodatak'
   end
   object Button1: TButton
     Left = 8
     Top = 181
     Width = 121
     Height = 36
-    Caption = 'Button1'
+    Caption = 'Po'#353'alji '#269'lanski broj'
     TabOrder = 3
     OnClick = Button1Click
   end
@@ -73,8 +66,8 @@ object FormTCP: TFormTCP
     IPVersion = Id_IPv4
     Port = 4567
     ReadTimeout = -1
-    Left = 176
-    Top = 16
+    Left = 136
+    Top = 152
   end
   object TCPServer: TIdTCPServer
     Active = True
@@ -85,7 +78,7 @@ object FormTCP: TFormTCP
       end>
     DefaultPort = 4568
     OnExecute = TCPServerExecute
-    Left = 176
-    Top = 104
+    Left = 136
+    Top = 184
   end
 end
