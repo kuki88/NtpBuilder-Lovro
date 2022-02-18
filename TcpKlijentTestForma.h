@@ -26,6 +26,7 @@ __published:	// IDE-managed Components
 	TIdTCPClient *TCPKlijent;
 	TIdTCPServer *TCPServer;
 	TButton *Button1;
+	TListBox *ListBox1;
 	void __fastcall btnConnDiscClick(TObject *Sender);
 	void __fastcall TCPServerExecute(TIdContext *AContext);
 	void __fastcall Button1Click(TObject *Sender);

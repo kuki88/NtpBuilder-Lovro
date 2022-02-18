@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>1899.12.30 00:00:00.000.934,=D:\C++ Builder Projects\Project2PCH1.h</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.648,D:\C++ Builder Projects\Project2PCH1.h=D:\C++ Builder Projects\NtpBuilder-Lovro\Project2PCH1.h</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.198,=D:\C++ Builder Projects\SOAPServis.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.664,D:\C++ Builder Projects\SOAPServis.cpp=D:\C++ Builder Projects\NtpBuilder-Lovro\SOAPServis.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.920,D:\C++ Builder Projects\FormUnit2.h=D:\C++ Builder Projects\NtpBuilder-Lovro\FormUnit2.h</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.920,D:\C++ Builder Projects\FormUnit2.cpp=D:\C++ Builder Projects\NtpBuilder-Lovro\FormUnit2.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.620,=D:\C++ Builder Projects\FormUnit2.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.660,D:\C++ Builder Projects\Project2.cbproj=D:\C++ Builder Projects\NtpBuilder-Lovro\Project2.cbproj</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.070,D:\C++ Builder Projects\WebModuleUnit2.dfm=D:\C++ Builder Projects\NtpBuilder-Lovro\WebModuleUnit2.dfm</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.070,D:\C++ Builder Projects\WebModuleUnit2.h=D:\C++ Builder Projects\NtpBuilder-Lovro\WebModuleUnit2.h</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.204,=D:\C++ Builder Projects\NtpBuilder-Lovro\ISOAPServis.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.939,D:\C++ Builder Projects\NtpBuilder-Lovro\ISOAPServis.cpp=</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.664,D:\C++ Builder Projects\SOAPServis.h=D:\C++ Builder Projects\NtpBuilder-Lovro\SOAPServis.h</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.920,D:\C++ Builder Projects\FormUnit2.dfm=D:\C++ Builder Projects\NtpBuilder-Lovro\FormUnit2.dfm</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.070,D:\C++ Builder Projects\WebModuleUnit2.cpp=D:\C++ Builder Projects\NtpBuilder-Lovro\WebModuleUnit2.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.833,=D:\C++ Builder Projects\WebModuleUnit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.939,D:\C++ Builder Projects\NtpBuilder-Lovro\ISOAPServis.cpp=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.204,=D:\C++ Builder Projects\NtpBuilder-Lovro\ISOAPServis.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.920,D:\C++ Builder Projects\NtpBuilder-Lovro\FormUnit2.dfm=D:\C++ Builder Projects\FormUnit2.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.620,=D:\C++ Builder Projects\FormUnit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.070,D:\C++ Builder Projects\NtpBuilder-Lovro\WebModuleUnit2.dfm=D:\C++ Builder Projects\WebModuleUnit2.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.664,D:\C++ Builder Projects\NtpBuilder-Lovro\SOAPServis.cpp=D:\C++ Builder Projects\SOAPServis.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.070,D:\C++ Builder Projects\NtpBuilder-Lovro\WebModuleUnit2.h=D:\C++ Builder Projects\WebModuleUnit2.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.648,D:\C++ Builder Projects\NtpBuilder-Lovro\Project2PCH1.h=D:\C++ Builder Projects\Project2PCH1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.660,D:\C++ Builder Projects\NtpBuilder-Lovro\Project2.cbproj=D:\C++ Builder Projects\Project2.cbproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.070,D:\C++ Builder Projects\NtpBuilder-Lovro\WebModuleUnit2.cpp=D:\C++ Builder Projects\WebModuleUnit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.920,D:\C++ Builder Projects\NtpBuilder-Lovro\FormUnit2.cpp=D:\C++ Builder Projects\FormUnit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.664,D:\C++ Builder Projects\NtpBuilder-Lovro\SOAPServis.h=D:\C++ Builder Projects\SOAPServis.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.920,D:\C++ Builder Projects\NtpBuilder-Lovro\FormUnit2.h=D:\C++ Builder Projects\FormUnit2.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.934,=D:\C++ Builder Projects\Project2PCH1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.198,=D:\C++ Builder Projects\SOAPServis.cpp</Transaction>
   </Transactions>
 </BorlandProject>

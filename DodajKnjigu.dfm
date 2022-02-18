@@ -89,6 +89,7 @@
     Top = 21
     Width = 22
     Height = 21
+    ReadOnly = True
     TabOrder = 5
   end
   object btnGeneriraj: TButton

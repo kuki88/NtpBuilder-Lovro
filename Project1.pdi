@@ -1,6 +1,7 @@
 bindengine260.bpl
 bindcomp260.bpl
 adortl260.bpl
+bindcompvcl260.bpl
 CustomIPTransport260.bpl
 RESTComponents260.bpl
 inet260.bpl

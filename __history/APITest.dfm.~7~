@@ -1,0 +1,124 @@
+object FormREST: TFormREST
+  Left = 0
+  Top = 0
+  Caption = 'FormREST'
+  ClientHeight = 555
+  ClientWidth = 635
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 151
+    Top = 66
+    Width = 32
+    Height = 13
+    Caption = 'Naslov'
+  end
+  object Memo1: TMemo
+    Left = 24
+    Top = 258
+    Width = 521
+    Height = 289
+    TabOrder = 0
+  end
+  object btnRest: TButton
+    Left = 24
+    Top = 8
+    Width = 89
+    Height = 41
+    Caption = 'Pokreni REST'
+    TabOrder = 1
+    OnClick = btnRestClick
+  end
+  object editNaslov: TEdit
+    Left = 24
+    Top = 63
+    Width = 121
+    Height = 21
+    TabOrder = 2
+    Text = 'the lord of the rings'
+  end
+  object editRezultatNaslov: TEdit
+    Left = 216
+    Top = 120
+    Width = 233
+    Height = 21
+    TabOrder = 3
+    Text = 'editRezultatNaslov'
+  end
+  object editRezultatAutor: TEdit
+    Left = 216
+    Top = 147
+    Width = 233
+    Height = 21
+    TabOrder = 4
+    Text = 'Edit1'
+  end
+  object editRezultatLink: TEdit
+    Left = 216
+    Top = 174
+    Width = 233
+    Height = 21
+    TabOrder = 5
+    Text = 'Edit1'
+  end
+  object btnNext: TButton
+    Left = 455
+    Top = 120
+    Width = 50
+    Height = 75
+    Caption = '-->'
+    TabOrder = 6
+  end
+  object RESTClient1: TRESTClient
+    Accept = 'application/json, text/plain; q=0.9, text/html;q=0.8,'
+    AcceptCharset = 'utf-8, *;q=0.8'
+    BaseURL = 'http://openlibrary.org/search.json'
+    Params = <>
+    Left = 536
+    Top = 8
+  end
+  object RESTRequest1: TRESTRequest
+    Client = RESTClient1
+    Params = <
+      item
+        Name = 'title'
+        Value = 'the lord of the rings'
+      end>
+    Response = RESTResponse1
+    SynchronizedEvents = False
+    Left = 568
+    Top = 8
+  end
+  object RESTResponse1: TRESTResponse
+    ContentType = 'application/json'
+    Left = 600
+    Top = 8
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 20
+    Top = 5
+    object LinkControlToField1: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = RESTRequest1
+      FieldName = 'Params.title'
+      Control = editNaslov
+      Track = True
+    end
+    object LinkControlToField2: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = RESTResponse1
+      FieldName = 'Content'
+      Control = Memo1
+      Track = False
+    end
+  end
+end

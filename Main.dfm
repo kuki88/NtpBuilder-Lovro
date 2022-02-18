@@ -22,7 +22,7 @@ object FormMain: TFormMain
   end
   object btnLogin: TButton
     Left = 8
-    Top = 3
+    Top = 8
     Width = 75
     Height = 25
     Caption = 'Login'

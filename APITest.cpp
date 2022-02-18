@@ -8,6 +8,10 @@
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 TFormREST *FormREST;
+TJSONObject* jsonContent;
+TJSONArray* jsArray;
+
+int i = 0;
 //---------------------------------------------------------------------------
 __fastcall TFormREST::TFormREST(TComponent* Owner)
 	: TForm(Owner)
@@ -16,7 +20,46 @@ __fastcall TFormREST::TFormREST(TComponent* Owner)
 //---------------------------------------------------------------------------
 void __fastcall TFormREST::btnRestClick(TObject *Sender)
 {
-    RESTRequest1->
+	RESTRequest1->Execute();
+	TJSONArray* var = (TJSONArray*)TJSONObject::ParseJSONValue(RESTResponse1->Content);
+	jsonContent = (TJSONObject*)TJSONObject::ParseJSONValue(var->ToString());
+	jsArray = (TJSONArray*)TJSONObject::ParseJSONValue(jsonContent->GetValue("docs")->ToString());
+
+	editRezultatNaslov->Text = jsArray->Items[i]->GetValue<UnicodeString>("title");
+	editRezultatLink->Text = "https://openlibrary.org" + jsArray->Items[i]->GetValue<UnicodeString>("key");
+	editRezultatAutor->Text = jsArray->Items[i]->GetValue<UnicodeString>("author_name[0]");
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFormREST::btnNextClick(TObject *Sender)
+{
+	++i;
+	try {
+		if(i == jsArray->Count){
+            i = 0;
+		}
+		editRezultatNaslov->Text = jsArray->Items[i]->GetValue<UnicodeString>("title");
+		editRezultatLink->Text = "https://openlibrary.org" + jsArray->Items[i]->GetValue<UnicodeString>("key");
+		editRezultatAutor->Text = jsArray->Items[i]->GetValue<UnicodeString>("author_name[0]");
+	} catch (...) {
+		ShowMessage("Error");
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFormREST::btnPreviousClick(TObject *Sender)
+{
+	--i;
+	try {
+		if(i < 0){
+			i = jsArray->Count - 1;
+		}
+		editRezultatNaslov->Text = jsArray->Items[i]->GetValue<UnicodeString>("title");
+		editRezultatLink->Text = "https://openlibrary.org" + jsArray->Items[i]->GetValue<UnicodeString>("key");
+		editRezultatAutor->Text = jsArray->Items[i]->GetValue<UnicodeString>("author_name[0]");
+	} catch (...) {
+		ShowMessage("Error");
+	}
 }
 //---------------------------------------------------------------------------
 
