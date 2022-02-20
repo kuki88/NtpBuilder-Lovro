@@ -3,7 +3,7 @@ object FormClanoviPosudbe: TFormClanoviPosudbe
   Top = 0
   Caption = 'FormClanoviPosudbe'
   ClientHeight = 808
-  ClientWidth = 731
+  ClientWidth = 735
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,7 +12,7 @@ object FormClanoviPosudbe: TFormClanoviPosudbe
   Font.Style = []
   OldCreateOrder = False
   DesignSize = (
-    731
+    735
     808)
   PixelsPerInch = 96
   TextHeight = 13
@@ -93,15 +93,8 @@ object FormClanoviPosudbe: TFormClanoviPosudbe
     Caption = 'Naziv Knjige'
     FocusControl = DBEdit6
   end
-  object Label3: TLabel
-    Left = 568
-    Top = 408
-    Width = 31
-    Height = 13
-    Caption = 'Label3'
-  end
   object gridPosudbe: TDBGrid
-    Left = 6
+    Left = 8
     Top = 591
     Width = 700
     Height = 209
@@ -157,7 +150,7 @@ object FormClanoviPosudbe: TFormClanoviPosudbe
       end>
   end
   object gridClanovi: TDBGrid
-    Left = 6
+    Left = 8
     Top = 39
     Width = 700
     Height = 185
@@ -170,6 +163,7 @@ object FormClanoviPosudbe: TFormClanoviPosudbe
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    OnDblClick = gridClanoviDblClick
     Columns = <
       item
         Expanded = False
@@ -214,16 +208,15 @@ object FormClanoviPosudbe: TFormClanoviPosudbe
     OnClick = btnNovaPosudbaClick
   end
   object editPrezime: TEdit
-    Left = 497
+    Left = 500
     Top = 12
     Width = 128
     Height = 21
     Anchors = [akTop]
     TabOrder = 3
-    ExplicitLeft = 500
   end
   object btnTrazi: TButton
-    Left = 630
+    Left = 634
     Top = 10
     Width = 75
     Height = 25
@@ -231,7 +224,6 @@ object FormClanoviPosudbe: TFormClanoviPosudbe
     Caption = 'Tra'#382'i'
     TabOrder = 4
     OnClick = btnTraziClick
-    ExplicitLeft = 634
   end
   object DBEdit1: TDBEdit
     Left = 8
@@ -379,38 +371,12 @@ object FormClanoviPosudbe: TFormClanoviPosudbe
       TabOrder = 4
     end
   end
-  object dbTest: TDBEdit
-    Left = 568
-    Top = 352
-    Width = 121
-    Height = 21
-    TabOrder = 12
-  end
-  object Button1: TButton
-    Left = 595
-    Top = 264
-    Width = 110
-    Height = 25
-    Caption = 'Button1'
-    TabOrder = 13
-    OnClick = Button1Click
-  end
-  object ADOConnection1: TADOConnection
-    Connected = True
-    ConnectionString = 
-      'Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security In' +
-      'fo=False;Initial Catalog=KnjiznicaManagement;Data Source=KUKICRO' +
-      '\SQLEXPRESS;Use Procedure for Prepare=1;Auto Translate=True;Pack' +
-      'et Size=4096;Workstation ID=KUKICRO;Use Encryption for Data=Fals' +
-      'e;Tag with column collation when possible=False'
-    LoginPrompt = False
-    Provider = 'SQLOLEDB.1'
-    Left = 40
-    Top = 163
-  end
   object TKnjige: TADOTable
     Active = True
-    Connection = ADOConnection1
+    ConnectionString = 
+      'Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security In' +
+      'fo=False;Initial Catalog=KnjiznicaManagement;Data Source=DESKTOP' +
+      '-N5RRRS5\SQLEXPRESS'
     CursorType = ctStatic
     IndexFieldNames = 'ISBN'
     MasterFields = 'isbnKnjige'
@@ -421,7 +387,10 @@ object FormClanoviPosudbe: TFormClanoviPosudbe
   end
   object TPosudbe: TADOTable
     Active = True
-    Connection = ADOConnection1
+    ConnectionString = 
+      'Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security In' +
+      'fo=False;Initial Catalog=KnjiznicaManagement;Data Source=DESKTOP' +
+      '-N5RRRS5\SQLEXPRESS'
     CursorType = ctStatic
     IndexFieldNames = 'clanskiBroj'
     MasterFields = 'clanskiBroj'
@@ -470,7 +439,10 @@ object FormClanoviPosudbe: TFormClanoviPosudbe
   end
   object TClanovi: TADOTable
     Active = True
-    Connection = ADOConnection1
+    ConnectionString = 
+      'Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security In' +
+      'fo=False;Initial Catalog=KnjiznicaManagement;Data Source=DESKTOP' +
+      '-N5RRRS5\SQLEXPRESS'
     CursorType = ctStatic
     Filter = 'prezime LIKE "K%"'
     TableName = 'Clanovi'
@@ -501,5 +473,14 @@ object FormClanoviPosudbe: TFormClanoviPosudbe
     DataSet = TClanovi
     Left = 184
     Top = 147
+  end
+  object ADOConnection1: TADOConnection
+    ConnectionString = 
+      'Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security In' +
+      'fo=False;Initial Catalog=KnjiznicaManagement;Data Source=DESKTOP' +
+      '-N5RRRS5\SQLEXPRESS'
+    Provider = 'SQLOLEDB.1'
+    Left = 32
+    Top = 160
   end
 end
