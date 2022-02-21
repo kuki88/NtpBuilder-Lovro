@@ -34,9 +34,11 @@ __published:	// IDE-managed Components
 	TButton *btnNext;
 	TButton *btnPrevious;
 	TLabel *Label2;
+	TButton *Button1;
 	void __fastcall btnRestClick(TObject *Sender);
 	void __fastcall btnNextClick(TObject *Sender);
 	void __fastcall btnPreviousClick(TObject *Sender);
+	void __fastcall Button1Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFormREST(TComponent* Owner);

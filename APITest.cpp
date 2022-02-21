@@ -63,3 +63,15 @@ void __fastcall TFormREST::btnPreviousClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TFormREST::Button1Click(TObject *Sender)
+{
+	  String url;
+	  url.sprintf(L"%s", editRezultatLink->Text.c_str());
+	  ShellExecuteW(0,
+			NULL,
+			url.c_str(),
+			NULL, NULL, SW_SHOWNOACTIVATE);
+
+}
+//---------------------------------------------------------------------------
+

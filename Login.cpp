@@ -68,9 +68,8 @@ void __fastcall TFormLogin::btnLoginClick(TObject *Sender)
 		return;
 	}
 
-    //uspjesna prijava, izlazimo iz login forme
-	FormMain->labelUlogiran->Caption = Src->DataSet->FieldByName("korisnickoIme")->AsString;
-    FormLogin->Close();
+	//uspjesna prijava, izlazimo iz login forme
+    ModalResult = mrOk;
 }
 //---------------------------------------------------------------------------
 

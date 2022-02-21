@@ -1,9 +1,10 @@
-﻿object FormUnosKnjige: TFormUnosKnjige
+object FormUnosKnjige: TFormUnosKnjige
   Left = 0
   Top = 0
+  BorderStyle = bsSingle
   Caption = 'FormUnosKnjige'
-  ClientHeight = 311
-  ClientWidth = 302
+  ClientHeight = 345
+  ClientWidth = 1047
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,87 +15,95 @@
   PixelsPerInch = 96
   TextHeight = 13
   object Label7: TLabel
-    Left = 118
-    Top = 48
+    Left = 110
+    Top = 80
     Width = 55
     Height = 13
     Caption = 'NazivKnjige'
   end
   object Label8: TLabel
-    Left = 124
-    Top = 128
+    Left = 116
+    Top = 160
     Width = 49
     Height = 13
     Caption = 'Kategorija'
   end
   object Label9: TLabel
-    Left = 138
-    Top = 168
+    Left = 130
+    Top = 200
     Width = 35
     Height = 13
     Caption = 'Koli'#269'ina'
   end
   object Label10: TLabel
-    Left = 150
-    Top = 8
+    Left = 142
+    Top = 0
     Width = 23
     Height = 13
     Caption = 'ISBN'
   end
   object Label11: TLabel
-    Left = 146
-    Top = 88
+    Left = 138
+    Top = 120
     Width = 27
     Height = 13
     Caption = 'Autor'
   end
+  object Label5: TLabel
+    Left = 109
+    Top = 40
+    Width = 56
+    Height = 13
+    Caption = 'Validni ISBN'
+  end
   object editNazivKnjige: TEdit
-    Left = 8
-    Top = 61
+    Left = 0
+    Top = 93
     Width = 165
     Height = 21
     TabOrder = 0
   end
   object editKategorija: TEdit
-    Left = 8
-    Top = 141
+    Left = 0
+    Top = 173
     Width = 165
     Height = 21
     TabOrder = 1
   end
   object editKolicina: TEdit
-    Left = 8
-    Top = 181
+    Left = 0
+    Top = 213
     Width = 165
     Height = 21
     TabOrder = 2
   end
   object editISBNDevet: TEdit
-    Left = 8
-    Top = 21
+    Left = 0
+    Top = 13
     Width = 165
     Height = 21
     MaxLength = 9
+    NumbersOnly = True
     TabOrder = 3
   end
   object editAutor: TEdit
-    Left = 8
-    Top = 101
+    Left = 0
+    Top = 133
     Width = 165
     Height = 21
     TabOrder = 4
   end
   object editISBN10: TEdit
-    Left = 179
-    Top = 21
+    Left = 171
+    Top = 13
     Width = 22
     Height = 21
     ReadOnly = True
     TabOrder = 5
   end
   object btnGeneriraj: TButton
-    Left = 207
-    Top = 19
+    Left = 199
+    Top = 11
     Width = 82
     Height = 25
     Caption = 'Generiraj ISBN'
@@ -102,52 +111,109 @@
     OnClick = btnGenerirajClick
   end
   object btnTraziNaz: TButton
-    Left = 179
-    Top = 57
+    Left = 171
+    Top = 89
     Width = 110
     Height = 25
     Caption = 'Tra'#382'i po nazivu'
     TabOrder = 7
+    OnClick = btnTraziNazClick
   end
-  object btnTraziAut: TButton
-    Left = 179
-    Top = 99
+  object btnTraziISBN: TButton
+    Left = 171
+    Top = 49
     Width = 110
     Height = 25
-    Caption = 'Tra'#382'i po autoru'
+    Caption = 'Tra'#382'i po ISBN-u'
     TabOrder = 8
+    OnClick = btnTraziISBNClick
   end
   object btnIzbrisi: TButton
-    Left = 8
-    Top = 216
+    Left = 0
+    Top = 248
     Width = 135
     Height = 41
     Caption = 'Izbri'#353'i'
     Enabled = False
     TabOrder = 9
+    OnClick = btnIzbrisiClick
   end
   object btnUredi: TButton
-    Left = 154
-    Top = 216
+    Left = 146
+    Top = 248
     Width = 135
     Height = 41
     Caption = 'Uredi'
     Enabled = False
     TabOrder = 10
+    OnClick = btnUrediClick
   end
   object btnDodaj: TButton
-    Left = 8
-    Top = 263
+    Left = 0
+    Top = 295
     Width = 281
     Height = 42
     Caption = 'Dodaj'
     Enabled = False
     TabOrder = 11
+    OnClick = btnDodajClick
+  end
+  object editFullISBN: TEdit
+    Left = 0
+    Top = 53
+    Width = 165
+    Height = 21
+    MaxLength = 10
+    TabOrder = 12
+  end
+  object DBGrid1: TDBGrid
+    Left = 344
+    Top = 13
+    Width = 693
+    Height = 324
+    DataSource = DKnjige
+    TabOrder = 13
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'NazivKnjige'
+        Width = 110
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Kategorija'
+        Width = 110
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Kolicina'
+        Width = 110
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'ISBN'
+        Width = 110
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Autor'
+        Width = 110
+        Visible = True
+      end>
   end
   object DKnjige: TDataSource
     DataSet = TKnjige
     Left = 18
-    Top = 328
+    Top = 368
   end
   object TKnjige: TADOTable
     Active = True
@@ -155,7 +221,7 @@
     CursorType = ctStatic
     TableName = 'Knjige'
     Left = 98
-    Top = 328
+    Top = 368
     object TKnjigeNazivKnjige: TWideStringField
       FieldName = 'NazivKnjige'
       Size = 50
@@ -164,8 +230,8 @@
       FieldName = 'Kategorija'
       Size = 50
     end
-    object TKnjigeKoličina: TIntegerField
-      FieldName = 'Koli'#269'ina'
+    object TKnjigeKolicina: TIntegerField
+      FieldName = 'Kolicina'
     end
     object TKnjigeISBN: TWideStringField
       FieldName = 'ISBN'
@@ -186,6 +252,6 @@
       'e;Tag with column collation when possible=False'
     Provider = 'SQLOLEDB.1'
     Left = 58
-    Top = 328
+    Top = 368
   end
 end

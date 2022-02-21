@@ -1,15 +1,18 @@
 ﻿//---------------------------------------------------------------------------
-
+#include <memory>
+#pragma hdrstop
+#include <tchar.h>
 #include <vcl.h>
 #pragma hdrstop
 
 #include "ClanoviPosudbeForma.h"
 #include "NovaPosudbaForma.h"
-// #include "Clanovi.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 TFormClanoviPosudbe *FormClanoviPosudbe;
+bool stanjeViseOdNule(int stanje);
+
 
 //Clanovi clan;
 
@@ -50,6 +53,7 @@ void __fastcall TFormClanoviPosudbe::btnNovaPosudbaClick(TObject *Sender)
 
 	TDataSource* Src = new TDataSource(this);
 
+	std::unique_ptr<TFormPosudba> FormPosudba(new TFormPosudba(NULL));
 
 	FormPosudba->editAdresa->Text = dbeditAdresa->Text;
 	FormPosudba->editIme->Text = dbEditIme->Text;
@@ -59,8 +63,9 @@ void __fastcall TFormClanoviPosudbe::btnNovaPosudbaClick(TObject *Sender)
 
 	if(FormPosudba->ShowModal() == mrOk)
 	{
-
-		if((FormPosudba->dbEditKolicina->Text).ToInt() > 0)
+		//(FormPosudba->dbEditKolicina->Text).ToInt() > 0
+		//staticki lib
+		if(stanjeViseOdNule((FormPosudba->dbEditKolicina->Text).ToInt()))
 		{
 
 			TPosudbe->Insert();
@@ -70,8 +75,13 @@ void __fastcall TFormClanoviPosudbe::btnNovaPosudbaClick(TObject *Sender)
 			TPosudbe->FieldByName("clanskiBroj")->AsString = FormPosudba->editClanskiBroj->Text;
 			TPosudbe->Post();
 
-
-
+			TKnjige->Edit();
+			TKnjige->FieldByName("ISBN")->AsString =  FormPosudba->dbEditNaziv->Text;
+			TKnjige->FieldByName("Autor")->AsString =  FormPosudba->dbEditAutor->Text;
+			TKnjige->FieldByName("Kategorija")->AsString =  FormPosudba->dbEditKategorija->Text;
+			TKnjige->FieldByName("Kolicina")->AsString = (FormPosudba->dbEditKolicina->Text).ToInt() - 1;
+			TKnjige->FieldByName("NazivKnjige")->AsString = FormPosudba->dbEditNaziv->Text;
+			TKnjige->Post();
 
 			ShowMessage("Uspješna posudba, član " + FormPosudba->editIme->Text + " je posudio knjigu " + FormPosudba->dbEditNaziv->Text);
 		}

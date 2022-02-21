@@ -1,9 +1,11 @@
 object FormDodajClana: TFormDodajClana
   Left = 0
   Top = 0
+  AutoSize = True
+  BorderStyle = bsSingle
   Caption = 'FormDodajClana'
-  ClientHeight = 456
-  ClientWidth = 315
+  ClientHeight = 329
+  ClientWidth = 298
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,8 +16,8 @@ object FormDodajClana: TFormDodajClana
   PixelsPerInch = 96
   TextHeight = 13
   object GroupBox1: TGroupBox
-    Left = 8
-    Top = 8
+    Left = 0
+    Top = 0
     Width = 297
     Height = 233
     Caption = #268'lan'
@@ -78,7 +80,6 @@ object FormDodajClana: TFormDodajClana
       Width = 121
       Height = 21
       TabOrder = 2
-      Text = 'editIme'
     end
     object editPrezime: TEdit
       Left = 88
@@ -86,7 +87,6 @@ object FormDodajClana: TFormDodajClana
       Width = 121
       Height = 21
       TabOrder = 3
-      Text = 'Edit1'
     end
     object editAdresa: TEdit
       Left = 88
@@ -94,7 +94,6 @@ object FormDodajClana: TFormDodajClana
       Width = 121
       Height = 21
       TabOrder = 4
-      Text = 'Edit1'
     end
     object editTelBroj: TEdit
       Left = 88
@@ -102,12 +101,11 @@ object FormDodajClana: TFormDodajClana
       Width = 121
       Height = 21
       TabOrder = 5
-      Text = 'Edit1'
     end
   end
   object btnUredi: TButton
-    Left = 8
-    Top = 247
+    Left = 0
+    Top = 239
     Width = 145
     Height = 42
     Caption = 'Uredi'
@@ -116,8 +114,8 @@ object FormDodajClana: TFormDodajClana
     OnClick = btnUrediClick
   end
   object btnDodaj: TButton
-    Left = 8
-    Top = 295
+    Left = 0
+    Top = 287
     Width = 298
     Height = 42
     Caption = 'Dodaj'
@@ -126,8 +124,8 @@ object FormDodajClana: TFormDodajClana
     OnClick = btnDodajClick
   end
   object btnIzbrisi: TButton
-    Left = 161
-    Top = 247
+    Left = 153
+    Top = 239
     Width = 145
     Height = 42
     Caption = 'Izbri'#353'i'

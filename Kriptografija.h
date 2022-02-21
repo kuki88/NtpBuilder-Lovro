@@ -1,0 +1,24 @@
+//---------------------------------------------------------------------------
+#include <vcl.h>
+#include <string>
+
+#ifndef KriptografijaH
+#define KriptografijaH
+//---------------------------------------------------------------------------
+#endif
+
+class Kriptografija
+{
+private:
+	std::unique_ptr<TMemoryStream> asymPrivateKey;
+	std::unique_ptr<TMemoryStream> asymPublicKey;
+	String symPublicKey;
+public:
+	String getSymmetricPublic()
+	{
+		return symPublicKey;
+	}
+	void setSymmetricPublic(String _key){
+		symPublicKey = _key;
+	}
+};

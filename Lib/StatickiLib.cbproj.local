@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.998,=D:\C++ Builder Projects\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.425,=D:\C++ Builder Projects\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.942,=D:\C++ Builder Projects\Project1PCH1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.784,=D:\C++ Builder Projects\Project1PCH1.h</Transaction>
+    <Transaction>2022.02.20 22:17:29.065,=D:\C++ Builder Projects\File1.cpp</Transaction>
+    <Transaction>2022.02.20 22:18:33.559,D:\C++ Builder Projects\NtpBuilder-Lovro\Lib\File1.cpp=D:\C++ Builder Projects\File1.cpp</Transaction>
+    <Transaction>2022.02.20 22:21:11.079,D:\C++ Builder Projects\StatickiLib.cbproj=D:\C++ Builder Projects\Project1.cbproj</Transaction>
+    <Transaction>2022.02.20 22:28:24.244,D:\C++ Builder Projects\NtpBuilder-Lovro\Lib\StatickiLib.cbproj=D:\C++ Builder Projects\StatickiLib.cbproj</Transaction>
+  </Transactions>
+</BorlandProject>

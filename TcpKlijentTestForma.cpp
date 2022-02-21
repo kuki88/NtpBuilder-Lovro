@@ -11,7 +11,10 @@
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 TFormTCP *FormTCP;
-int randPort = 1000+ (rand() % 9999);
+
+UnicodeString jsonPopis(TJSONArray* js2);
+bool stanjeViseOdNule(int stanje);
+
 //---------------------------------------------------------------------------
 __fastcall TFormTCP::TFormTCP(TComponent* Owner)
 	: TForm(Owner)
@@ -28,7 +31,7 @@ void __fastcall TFormTCP::btnConnDiscClick(TObject *Sender)
 		TCPKlijent->Disconnect();
 		labelSpojeno->Caption = "Odspojeno";
 		btnConnDisc->Caption = "Spoji";
-    }
+	}
     else {
 		TCPKlijent->Connect();
         btnConnDisc->Caption = "Odspoji";
@@ -72,21 +75,18 @@ void __fastcall TFormTCP::TCPServerExecute(TIdContext *AContext)
 
 //	ShowMessage(js2);
 
-	UnicodeString popisPosudbi;
-	for(int i = 0; i < js2->Count; i++)
-	{
-		popisPosudbi += js2->Items[i]->GetValue<UnicodeString>("Naziv Knjige");
-        popisPosudbi += "\nPovratak:\t";
-		popisPosudbi += js2->Items[i]->GetValue<UnicodeString>("Datum Povratka");
-		popisPosudbi += "\n";
-		popisPosudbi += "-----------------------------------\n";
-	}
+//	UnicodeString popisPosudbi;
+//	for(int i = 0; i < js2->Count; i++)
+//	{
+//		popisPosudbi += js2->Items[i]->GetValue<UnicodeString>("Naziv Knjige");
+//        popisPosudbi += "\nPovratak:\t";
+//		popisPosudbi += js2->Items[i]->GetValue<UnicodeString>("Datum Povratka");
+//		popisPosudbi += "\n";
+//		popisPosudbi += "-----------------------------------\n";
+//	}
+//
+	ShowMessage(jsonPopis(js2));
 
-	ShowMessage(popisPosudbi);
-
-//	String var = js2->Items[0]->GetValue<UnicodeString>("Naziv Knjige");
-
-//	ShowMessage(var);
 
 }
 //---------------------------------------------------------------------------
@@ -94,7 +94,6 @@ void __fastcall TFormTCP::TCPServerExecute(TIdContext *AContext)
 
 void __fastcall TFormTCP::Button1Click(TObject *Sender)
 {
-
 	TThread::Synchronize(TThread::CurrentThread,
 		[&](){
 		//saljemo na tcp server podatke

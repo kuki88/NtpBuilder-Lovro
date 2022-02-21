@@ -1,4 +1,4 @@
-//---------------------------------------------------------------------------
+﻿//---------------------------------------------------------------------------
 
 #include <vcl.h>
 #include <string>
@@ -12,6 +12,7 @@
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 TFormUnosKnjige *FormUnosKnjige;
+String pronadeniIsbn;
 //---------------------------------------------------------------------------
 __fastcall TFormUnosKnjige::TFormUnosKnjige(TComponent* Owner)
 	: TForm(Owner)
@@ -29,13 +30,191 @@ void __fastcall TFormUnosKnjige::btnGenerirajClick(TObject *Sender)
 	_di_ISBNServiceSoapType soapWeb = GetISBNServiceSoapType();
 
 
-	String validniIsbn = editISBNDevet->Text + soapInt->generiranjeISBN(editISBNDevet->Text);
-	ShowMessage(validniIsbn);
+	String validniIsbn;
+	String prvihDevet = editISBNDevet->Text;
+	String generiraniISBN = soapInt->generiranjeISBN(prvihDevet);
+	if (generiraniISBN == 10) {
+		generiraniISBN = "X";
+	}
 
-	if (soapWeb->IsValidISBN10(validniIsbn)) {
+	validniIsbn = prvihDevet + generiraniISBN;
+	editISBNDevet->Text = prvihDevet;
+	editISBN10->Text = generiraniISBN;
+    editFullISBN->Text = validniIsbn;
+}
+//---------------------------------------------------------------------------
 
+
+void __fastcall TFormUnosKnjige::btnTraziNazClick(TObject *Sender)
+{
+	btnUredi->Enabled = false;
+	btnDodaj->Enabled = false;
+	btnIzbrisi->Enabled = false;
+
+	TKnjige->Filtered = false;
+	TLocateOptions searchOptions;
+	searchOptions.Clear();
+	searchOptions << loCaseInsensitive;
+
+	if(editNazivKnjige->Text.IsEmpty())
+	{
+		TKnjige->Filtered = false;
+		return;
+	}
+
+	if(TKnjige->Locate("NazivKnjige", editNazivKnjige->Text, searchOptions))
+	{
+		TKnjige->Filter = "NazivKnjige = '" + editNazivKnjige->Text.LowerCase() + "'";
+		TKnjige->Filtered = true;
+		editAutor->Text = TKnjige->FieldByName("Autor")->AsString;
+		editKategorija->Text = TKnjige->FieldByName("Kategorija")->AsString;
+		editKolicina->Text = TKnjige->FieldByName("Kolicina")->AsString;
+		editFullISBN->Text = TKnjige->FieldByName("ISBN")->AsString;
+		btnUredi->Enabled = true;
 	}
 }
 //---------------------------------------------------------------------------
 
+
+void __fastcall TFormUnosKnjige::btnTraziISBNClick(TObject *Sender)
+{
+	_di_ISOAPServis soapInt = GetISOAPServis();
+	_di_ISBNServiceSoapType soapWeb = GetISBNServiceSoapType();
+
+	btnUredi->Enabled = false;
+	btnDodaj->Enabled = false;
+	btnIzbrisi->Enabled = false;
+
+	TKnjige->Filtered = false;
+	TLocateOptions searchOptions;
+	searchOptions.Clear();
+	searchOptions << loPartialKey;
+
+	if(editFullISBN->Text.IsEmpty())
+	{
+		TKnjige->Filtered = false;
+		return;
+		editAutor->Text = "";
+		editKategorija->Text = "";
+		editNazivKnjige->Text = "";
+		editKolicina->Text = "";
+		editFullISBN->Text = "";
+	}
+
+	if(TKnjige->Locate("ISBN", editFullISBN->Text, searchOptions))
+	{
+		TKnjige->Filter = "ISBN = '" + editFullISBN->Text.LowerCase() + "'";
+		TKnjige->Filtered = true;
+        pronadeniIsbn = editFullISBN->Text;
+		editAutor->Text = TKnjige->FieldByName("Autor")->AsString;
+		editKategorija->Text = TKnjige->FieldByName("Kategorija")->AsString;
+		editNazivKnjige->Text = TKnjige->FieldByName("NazivKnjige")->AsString;
+		editKolicina->Text = TKnjige->FieldByName("Kolicina")->AsString;
+		btnUredi->Enabled = true;
+		btnIzbrisi->Enabled = true;
+		return;
+	}
+	else
+	{
+		editAutor->Text = "";
+		editKategorija->Text = "";
+		editNazivKnjige->Text = "";
+		editKolicina->Text = "";
+	}
+
+    btnDodaj->Enabled = true;
+}
+//---------------------------------------------------------------------------
+void __fastcall TFormUnosKnjige::btnIzbrisiClick(TObject *Sender)
+{
+	TLocateOptions opcija;
+	opcija.Clear();
+	opcija << loCaseInsensitive;
+
+	if(TKnjige->Locate("ISBN", editFullISBN->Text, opcija))
+	{
+		if(Application->MessageBox(L"Želite li izbrisati odabranu knjigu?",
+									L"Potvrda",
+									MB_YESNO)
+									== ID_YES)
+		{
+				TKnjige->Delete();
+        }
+	}
+    else ShowMessage("Član nije pronađen!");
+
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFormUnosKnjige::btnUrediClick(TObject *Sender)
+{
+
+	_di_ISOAPServis soapInt = GetISOAPServis();
+	_di_ISBNServiceSoapType soapWeb = GetISBNServiceSoapType();
+
+	TKnjige->Filtered = false;
+
+	TLocateOptions opcija;
+	opcija.Clear();
+	opcija << loCaseInsensitive;
+
+	try {
+
+		TKnjige->Filter = "ISBN = '" + pronadeniIsbn + "'";
+		TKnjige->Filtered = true;
+
+		TKnjige->Edit();
+
+		TKnjige->FieldByName("Autor")->AsString = editAutor->Text;
+		TKnjige->FieldByName("Kategorija")->AsString = editKategorija->Text;
+		TKnjige->FieldByName("Kolicina")->AsString = editKolicina->Text;
+		TKnjige->FieldByName("NazivKnjige")->AsString = editNazivKnjige->Text;
+
+		TKnjige->Post();
+
+
+
+
+	} catch (...) {
+        ShowMessage("Greška kod unosa!");
+	}
+
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFormUnosKnjige::btnDodajClick(TObject *Sender)
+{
+	_di_ISOAPServis soapInt = GetISOAPServis();
+	_di_ISBNServiceSoapType soapWeb = GetISBNServiceSoapType();
+
+
+	try
+	{
+		if (soapWeb->IsValidISBN10(editFullISBN->Text))
+		{
+			TKnjige->Append();
+
+			TKnjige->FieldByName("ISBN")->AsString = editFullISBN->Text;
+			TKnjige->FieldByName("Autor")->AsString = editAutor->Text;
+			TKnjige->FieldByName("Kategorija")->AsString = editKategorija->Text;
+			TKnjige->FieldByName("Kolicina")->AsString = editKolicina->Text;
+			TKnjige->FieldByName("NazivKnjige")->AsString = editNazivKnjige->Text;
+
+			TKnjige->Post();
+		}
+		else
+		{
+			ShowMessage("Neispravan ISBN!");
+			return;
+		}
+
+		ShowMessage("Dodali ste knjigu: " + editNazivKnjige->Text + "\nautora: " + editAutor->Text);
+
+	} catch(...)
+	{
+		ShowMessage("Greška kod unosa!");
+	}
+
+}
+//---------------------------------------------------------------------------
 

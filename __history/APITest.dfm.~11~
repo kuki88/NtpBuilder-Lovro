@@ -1,0 +1,133 @@
+object FormREST: TFormREST
+  Left = 0
+  Top = 0
+  Caption = 'FormREST'
+  ClientHeight = 174
+  ClientWidth = 378
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 24
+    Top = 34
+    Width = 32
+    Height = 13
+    Caption = 'Naslov'
+  end
+  object Label2: TLabel
+    Left = 80
+    Top = 8
+    Width = 233
+    Height = 19
+    Caption = 'Pretraga na openlibrary.com'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clNavy
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object btnRest: TButton
+    Left = 281
+    Top = 33
+    Width = 89
+    Height = 41
+    Caption = 'Tra'#382'i'
+    TabOrder = 0
+    OnClick = btnRestClick
+  end
+  object editNaslov: TEdit
+    Left = 24
+    Top = 53
+    Width = 251
+    Height = 21
+    TabOrder = 1
+    Text = 'the lord of the rings'
+  end
+  object editRezultatNaslov: TEdit
+    Left = 80
+    Top = 88
+    Width = 233
+    Height = 21
+    TabOrder = 2
+    Text = 'editRezultatNaslov'
+  end
+  object editRezultatAutor: TEdit
+    Left = 80
+    Top = 115
+    Width = 233
+    Height = 21
+    TabOrder = 3
+    Text = 'Edit1'
+  end
+  object editRezultatLink: TEdit
+    Left = 80
+    Top = 142
+    Width = 233
+    Height = 21
+    TabOrder = 4
+    Text = 'Edit1'
+  end
+  object btnNext: TButton
+    Left = 319
+    Top = 88
+    Width = 50
+    Height = 75
+    Caption = '-->'
+    TabOrder = 5
+    OnClick = btnNextClick
+  end
+  object btnPrevious: TButton
+    Left = 24
+    Top = 88
+    Width = 50
+    Height = 75
+    Caption = '<--'
+    TabOrder = 6
+    OnClick = btnPreviousClick
+  end
+  object RESTClient1: TRESTClient
+    Accept = 'application/json, text/plain; q=0.9, text/html;q=0.8,'
+    AcceptCharset = 'utf-8, *;q=0.8'
+    BaseURL = 'http://openlibrary.org/search.json'
+    Params = <>
+    Left = 536
+    Top = 8
+  end
+  object RESTRequest1: TRESTRequest
+    Client = RESTClient1
+    Params = <
+      item
+        Name = 'title'
+        Value = 'the lord of the rings'
+      end>
+    Response = RESTResponse1
+    SynchronizedEvents = False
+    Left = 568
+    Top = 8
+  end
+  object RESTResponse1: TRESTResponse
+    ContentType = 'application/json'
+    Left = 600
+    Top = 8
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 500
+    Top = 5
+    object LinkControlToField1: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = RESTRequest1
+      FieldName = 'Params.title'
+      Control = editNaslov
+      Track = True
+    end
+  end
+end

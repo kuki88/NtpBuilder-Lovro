@@ -50,7 +50,7 @@ object Form2: TForm2
   object ButtonOpenBrowser: TButton
     Left = 24
     Top = 112
-    Width = 107
+    Width = 156
     Height = 25
     Caption = 'Open Browser'
     TabOrder = 3

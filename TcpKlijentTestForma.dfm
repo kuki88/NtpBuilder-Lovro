@@ -3,7 +3,7 @@ object FormTCP: TFormTCP
   Top = 0
   Caption = 'FormTCP'
   ClientHeight = 217
-  ClientWidth = 726
+  ClientWidth = 193
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -30,7 +30,7 @@ object FormTCP: TFormTCP
   object editServerIp: TEdit
     Left = 8
     Top = 24
-    Width = 121
+    Width = 177
     Height = 21
     TabOrder = 0
     Text = '127.0.0.1'
@@ -38,7 +38,7 @@ object FormTCP: TFormTCP
   object btnConnDisc: TButton
     Left = 8
     Top = 51
-    Width = 121
+    Width = 177
     Height = 30
     Caption = 'Spoji'
     TabOrder = 1
@@ -47,26 +47,18 @@ object FormTCP: TFormTCP
   object editPodatak: TEdit
     Left = 8
     Top = 114
-    Width = 121
+    Width = 177
     Height = 21
     TabOrder = 2
   end
   object Button1: TButton
     Left = 8
     Top = 141
-    Width = 121
+    Width = 177
     Height = 36
     Caption = 'Po'#353'alji '#269'lanski broj'
     TabOrder = 3
     OnClick = Button1Click
-  end
-  object ListBox1: TListBox
-    Left = 229
-    Top = 24
-    Width = 489
-    Height = 151
-    ItemHeight = 13
-    TabOrder = 4
   end
   object TCPKlijent: TIdTCPClient
     ConnectTimeout = 0
@@ -74,8 +66,8 @@ object FormTCP: TFormTCP
     IPVersion = Id_IPv4
     Port = 4567
     ReadTimeout = -1
-    Left = 136
-    Top = 112
+    Left = 16
+    Top = 184
   end
   object TCPServer: TIdTCPServer
     Active = True
@@ -86,7 +78,7 @@ object FormTCP: TFormTCP
       end>
     DefaultPort = 4568
     OnExecute = TCPServerExecute
-    Left = 136
-    Top = 144
+    Left = 48
+    Top = 184
   end
 end

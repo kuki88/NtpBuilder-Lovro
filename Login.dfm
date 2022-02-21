@@ -1,9 +1,11 @@
 object FormLogin: TFormLogin
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
   Caption = 'FormLogin'
-  ClientHeight = 255
-  ClientWidth = 237
+  ClientHeight = 265
+  ClientWidth = 247
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,29 +13,32 @@ object FormLogin: TFormLogin
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
   DesignSize = (
-    237
-    255)
+    247
+    265)
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
-    Left = 80
+    Left = 85
     Top = 16
     Width = 70
     Height = 13
     Anchors = [akTop]
     Caption = 'Korisni'#269'ko ime:'
+    ExplicitLeft = 80
   end
   object Label2: TLabel
-    Left = 96
+    Left = 101
     Top = 80
     Width = 39
     Height = 13
     Anchors = [akTop]
     Caption = 'Lozinka:'
+    ExplicitLeft = 96
   end
   object labelPrijava: TLabel
-    Left = 7
+    Left = 10
     Top = 135
     Width = 109
     Height = 16
@@ -49,7 +54,7 @@ object FormLogin: TFormLogin
     ExplicitLeft = 8
   end
   object editKorisnicko: TEdit
-    Left = 8
+    Left = 13
     Top = 35
     Width = 221
     Height = 30
@@ -61,11 +66,10 @@ object FormLogin: TFormLogin
     Font.Style = []
     ParentFont = False
     TabOrder = 0
-    ExplicitLeft = 9
   end
   object btnLogin: TButton
-    Left = 8
-    Top = 205
+    Left = 13
+    Top = 215
     Width = 221
     Height = 42
     Anchors = [akBottom]
@@ -76,12 +80,11 @@ object FormLogin: TFormLogin
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 1
+    TabOrder = 2
     OnClick = btnLoginClick
-    ExplicitLeft = 9
   end
   object editLozinka: TEdit
-    Left = 8
+    Left = 13
     Top = 99
     Width = 221
     Height = 30
@@ -92,8 +95,7 @@ object FormLogin: TFormLogin
     Font.Name = 'Calisto MT'
     Font.Style = []
     ParentFont = False
-    TabOrder = 2
-    ExplicitLeft = 9
+    TabOrder = 1
   end
   object ADOTable1: TADOTable
     ConnectionString = 

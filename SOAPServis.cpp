@@ -31,8 +31,11 @@ public:
 		suma = suma + (broj * (10 - i));
 	}
 
-	return 11 - (suma % 11);
+	if (suma % 11) {
+		return 11 - (suma % 11);
+	}
 
+    return 0;
   };
 };
 

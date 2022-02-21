@@ -11,10 +11,19 @@
 class TFormMain : public TForm
 {
 __published:	// IDE-managed Components
-	TButton *btnLogin;
 	TLabel *labelUlogiran;
-	TButton *Button1;
-	void __fastcall FormActivate(TObject *Sender);
+	TButton *btnPosudbePoDatumima;
+	TButton *btnUvidUPosudbe;
+	TButton *btnPretragaWeb;
+	TButton *btnPreuzimanje;
+	TGroupBox *GroupBox1;
+	TButton *btnKnjige;
+	TButton *btnClanovi;
+	void __fastcall btnKnjigeClick(TObject *Sender);
+	void __fastcall btnClanoviClick(TObject *Sender);
+	void __fastcall btnUvidUPosudbeClick(TObject *Sender);
+	void __fastcall btnPosudbePoDatumimaClick(TObject *Sender);
+	void __fastcall btnPretragaWebClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFormMain(TComponent* Owner);

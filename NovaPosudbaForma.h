@@ -34,11 +34,6 @@ __published:	// IDE-managed Components
 	TADOTable *TPosudba;
 	TDataSource *DPosudba;
 	TADOConnection *ADOConnection1;
-	TWideStringField *TKnjigePosNazivKnjige;
-	TWideStringField *TKnjigePosKategorija;
-	TIntegerField *TKnjigePosKoličina;
-	TWideStringField *TKnjigePosISBN;
-	TWideStringField *TKnjigePosAutor;
 	TLabel *Label7;
 	TDBEdit *dbEditNaziv;
 	TLabel *Label8;
@@ -55,6 +50,11 @@ __published:	// IDE-managed Components
 	TEdit *editPrezime;
 	TEdit *editClanskiBroj;
 	TEdit *editBrojPosudbi;
+	TWideStringField *TKnjigePosNazivKnjige;
+	TWideStringField *TKnjigePosKategorija;
+	TIntegerField *TKnjigePosKolicina;
+	TWideStringField *TKnjigePosISBN;
+	TWideStringField *TKnjigePosAutor;
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall PosudiClick(TObject *Sender);
 private:	// User declarations

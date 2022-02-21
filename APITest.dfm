@@ -2,7 +2,7 @@ object FormREST: TFormREST
   Left = 0
   Top = 0
   Caption = 'FormREST'
-  ClientHeight = 174
+  ClientHeight = 206
   ClientWidth = 378
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -78,7 +78,7 @@ object FormREST: TFormREST
     Left = 319
     Top = 88
     Width = 50
-    Height = 75
+    Height = 106
     Caption = '-->'
     TabOrder = 5
     OnClick = btnNextClick
@@ -87,10 +87,19 @@ object FormREST: TFormREST
     Left = 24
     Top = 88
     Width = 50
-    Height = 75
+    Height = 106
     Caption = '<--'
     TabOrder = 6
     OnClick = btnPreviousClick
+  end
+  object Button1: TButton
+    Left = 80
+    Top = 169
+    Width = 233
+    Height = 25
+    Caption = 'Otvori u pregledniku'
+    TabOrder = 7
+    OnClick = Button1Click
   end
   object RESTClient1: TRESTClient
     Accept = 'application/json, text/plain; q=0.9, text/html;q=0.8,'

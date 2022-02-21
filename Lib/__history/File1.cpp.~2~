@@ -1,0 +1,9 @@
+ bool stanjeViseOdNule(int stanje)
+ {
+	 if (stanje > 0) {
+		 return true;
+	 }
+
+     return false;
+ }
+

@@ -1,0 +1,63 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#include <memory>
+#pragma hdrstop
+#include <tchar.h>
+#include <Login.h>
+//---------------------------------------------------------------------------
+USEFORM("NovaPosudbaForma.cpp", FormPosudba);
+USEFORM("Main.cpp", FormMain);
+USEFORM("Login.cpp", FormLogin);
+USEFORM("TcpKlijentTestForma.cpp", FormTCP);
+USEFORM("DodajClana.cpp", FormDodajClana);
+USEFORM("ClanoviPosudbeForma.cpp", FormClanoviPosudbe);
+USEFORM("APITest.cpp", FormREST);
+USEFORM("DodajKnjigu.cpp", FormUnosKnjige);
+i//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
+nt WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
+{
+	try
+	{
+		Application->Initialize();
+		Application->MainFormOnTaskBar = true;
+
+		ApApplication->CreateForm(__classid(TFormUnosKnjige), &FormUnosKnjige);
+		d::unique_ptr<TFormLogin> FormLogin(new TFormLogin(NULL));
+//
+//		if (FormLogin->ShowModal() == mrOk) {
+//			Application->CreateForm(__classid(TFormMain), &FormMain);
+//			Application->Run();
+//		}
+//		else{
+//			ShowMessage("Neuspješan login!");
+//		}
+
+//		Application->CreateForm(__classid(TFormREST), &FormREST);
+//		Application->CreateForm(__classid(TFormTCP), &FormTCP);
+//		Application->CreateForm(__classid(TFormDodajClana), &FormDodajClana);
+//		Application->CreateForm(__classid(TFormLogin), &FormLogin);
+//
+//		Application->CreateForm(__classid(TFormClanoviPosudbe), &FormClanoviPosudbe);
+//		Application->CreateForm(__classid(TFormPosudba), &FormPosudba);
+		Application->Run();
+	}
+	catch (Exception &exception)
+	{
+		Application->ShowException(&exception);
+	}
+	catch (...)
+	{
+		try
+		{
+			throw Exception("");
+		}
+		catch (Exception &exception)
+		{
+			Application->ShowException(&exception);
+		}
+	}
+	return 0;
+}
+//---------------------------------------------------------------------------

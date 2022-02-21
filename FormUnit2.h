@@ -25,6 +25,7 @@ __published:	// IDE-managed Components
 	void __fastcall ButtonOpenBrowserClick(TObject *Sender);
 	void __fastcall ApplicationEvents1Idle(TObject *Sender, bool &Done);
 	void __fastcall FormCreate(TObject *Sender);
+
 private:	// User declarations
 	TIdHTTPWebBrokerBridge *FServer;
     

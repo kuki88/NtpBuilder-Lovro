@@ -1,4 +1,4 @@
-﻿object FormPosudba: TFormPosudba
+object FormPosudba: TFormPosudba
   Left = 0
   Top = 0
   Caption = 'Posudba'
@@ -144,6 +144,37 @@
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'NazivKnjige'
+        Width = 110
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Kategorija'
+        Width = 110
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Kolicina'
+        Width = 110
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'ISBN'
+        Width = 110
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Autor'
+        Width = 110
+        Visible = True
+      end>
   end
   object datePocetna: TDateTimePicker
     Left = 87
@@ -191,7 +222,7 @@
     Width = 204
     Height = 21
     Anchors = [akTop, akRight]
-    DataField = 'Koli'#269'ina'
+    DataField = 'Kolicina'
     DataSource = DKnjigePos
     ReadOnly = True
     TabOrder = 7
@@ -273,6 +304,7 @@
     Text = 'Edit1'
   end
   object TKnjigePos: TADOTable
+    Active = True
     Connection = ADOConnection1
     CursorType = ctStatic
     TableName = 'Knjige'
@@ -286,8 +318,8 @@
       FieldName = 'Kategorija'
       Size = 50
     end
-    object TKnjigePosKoličina: TIntegerField
-      FieldName = 'Koli'#269'ina'
+    object TKnjigePosKolicina: TIntegerField
+      FieldName = 'Kolicina'
     end
     object TKnjigePosISBN: TWideStringField
       FieldName = 'ISBN'
@@ -304,6 +336,7 @@
     Top = 16
   end
   object TPosudba: TADOTable
+    Active = True
     Connection = ADOConnection1
     CursorType = ctStatic
     TableName = 'Posudbe'
@@ -316,6 +349,7 @@
     Top = 56
   end
   object ADOConnection1: TADOConnection
+    Connected = True
     ConnectionString = 
       'Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security In' +
       'fo=False;Initial Catalog=KnjiznicaManagement;Data Source=KUKICRO' +

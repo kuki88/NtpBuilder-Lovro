@@ -9,17 +9,14 @@
 #include <Vcl.Forms.hpp>
 #include <Data.DB.hpp>
 #include <Data.Win.ADODB.hpp>
+#include <Vcl.DBGrids.hpp>
+#include <Vcl.Grids.hpp>
 //---------------------------------------------------------------------------
 class TFormUnosKnjige : public TForm
 {
 __published:	// IDE-managed Components
 	TDataSource *DKnjige;
 	TADOTable *TKnjige;
-	TWideStringField *TKnjigeNazivKnjige;
-	TWideStringField *TKnjigeKategorija;
-	TIntegerField *TKnjigeKoličina;
-	TWideStringField *TKnjigeISBN;
-	TWideStringField *TKnjigeAutor;
 	TADOConnection *ADOConnection1;
 	TEdit *editNazivKnjige;
 	TEdit *editKategorija;
@@ -34,11 +31,24 @@ __published:	// IDE-managed Components
 	TEdit *editISBN10;
 	TButton *btnGeneriraj;
 	TButton *btnTraziNaz;
-	TButton *btnTraziAut;
+	TButton *btnTraziISBN;
 	TButton *btnIzbrisi;
 	TButton *btnUredi;
 	TButton *btnDodaj;
+	TLabel *Label5;
+	TEdit *editFullISBN;
+	TDBGrid *DBGrid1;
+	TWideStringField *TKnjigeNazivKnjige;
+	TWideStringField *TKnjigeKategorija;
+	TIntegerField *TKnjigeKolicina;
+	TWideStringField *TKnjigeISBN;
+	TWideStringField *TKnjigeAutor;
 	void __fastcall btnGenerirajClick(TObject *Sender);
+	void __fastcall btnTraziNazClick(TObject *Sender);
+	void __fastcall btnTraziISBNClick(TObject *Sender);
+	void __fastcall btnIzbrisiClick(TObject *Sender);
+	void __fastcall btnUrediClick(TObject *Sender);
+	void __fastcall btnDodajClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFormUnosKnjige(TComponent* Owner);
