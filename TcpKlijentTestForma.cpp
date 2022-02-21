@@ -86,8 +86,6 @@ void __fastcall TFormTCP::TCPServerExecute(TIdContext *AContext)
 //	}
 //
 	ShowMessage(jsonPopis(js2));
-
-
 }
 //---------------------------------------------------------------------------
 

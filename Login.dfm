@@ -14,6 +14,8 @@ object FormLogin: TFormLogin
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
   DesignSize = (
     247
     265)
@@ -95,6 +97,7 @@ object FormLogin: TFormLogin
     Font.Name = 'Calisto MT'
     Font.Style = []
     ParentFont = False
+    PasswordChar = '*'
     TabOrder = 1
   end
   object ADOTable1: TADOTable

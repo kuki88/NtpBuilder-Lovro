@@ -5,6 +5,7 @@
 #include <vcl.h>
 #include <memory>
 #include <idhashmessagedigest.hpp>
+#include <registry.hpp>
 #pragma hdrstop
 
 #include "Main.h"
@@ -68,4 +69,6 @@ void __fastcall TFormMain::btnPretragaWebClick(TObject *Sender)
 	FormREST->ShowModal();
 }
 //---------------------------------------------------------------------------
+
+
 

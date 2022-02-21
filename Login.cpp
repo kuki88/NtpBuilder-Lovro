@@ -2,6 +2,7 @@
 
 #include <vcl.h>
 #include <idhashmessagedigest.hpp>
+#include <registry.hpp>
 #pragma hdrstop
 
 #include "Login.h"
@@ -10,6 +11,8 @@
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 TFormLogin *FormLogin;
+
+bool uspjeh = false;
 //---------------------------------------------------------------------------
 __fastcall TFormLogin::TFormLogin(TComponent* Owner)
 	: TForm(Owner)
@@ -69,7 +72,33 @@ void __fastcall TFormLogin::btnLoginClick(TObject *Sender)
 	}
 
 	//uspjesna prijava, izlazimo iz login forme
+    uspjeh = true;
     ModalResult = mrOk;
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TFormLogin::FormClose(TObject *Sender, TCloseAction &Action)
+{
+
+	if (uspjeh) {
+		TIniFile* iniFile = new TIniFile(GetCurrentDir() + "\\zadnji_user.ini");
+
+		iniFile->WriteString("ZadnjiLogin", "Korisnicko ime", editKorisnicko->Text);
+	}
+
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFormLogin::FormCreate(TObject *Sender)
+{
+
+	try {
+		TIniFile* iniFile = new TIniFile(GetCurrentDir() + "\\zadnji_user.ini");
+		ShowMessage("Zadnji korisnik koji je bio ulogiran: " + iniFile->ReadString("ZadnjiLogin", "Korisnicko ime", ""));
+
+    } catch (...) {
+	}
 }
 //---------------------------------------------------------------------------
 
